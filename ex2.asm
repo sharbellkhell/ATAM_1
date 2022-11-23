@@ -1,30 +1,48 @@
-.global _start
 
-.section .text
-_start:
+.text
+.global main
+main:
+    movq %rsp, %rbp #for correct debugging
     mov source, %rax
     mov dest, %rbx
+    xor %rdx, %rdx
     xor %rcx, %rcx
     movl num, %edx
-    test %rdx,%rdx
+    test %edx,%edx
     jz END
-    cmp %rcx, %rdx  # 0 <= num
-    jge POSITIVE
-    lea (%rbx,%rdx, 8), %rbx
-NEGATIVE:
+    cmp %ecx, %edx  # 0 <= num
+    jle NEGATIVE_START
+    lea (%rbx,%rdx, 1), %rbx #to be edited
+    dec %rbx #to be edited
+POSITIVE_PUSH:
     movb (%rax), %cl
-    movb %cl, (%rbx)
-    add $8, %rax
-    sub $8, %rbx
+    pushq %rcx
+    add $1, %rax
     dec %rdx
-    jnz NEGATIVE
+    jnz POSITIVE_PUSH
+    movl num, %edx
+POSITIVE_POP:
+    popq %rcx
+    movb %cl, (%rbx)
+    dec %rbx
+    dec %rdx
+    jnz POSITIVE_POP
     jmp END
-POSITIVE:
+NEGATIVE_START:
+    neg %edx
+NEGATIVE_PUSH:
     movb (%rax), %cl
-    movb %cl, (%rbx)
-    add $8, %rax
-    add $8, %rbx
+    pushq %rcx
+    add $1, %rax
     dec %rdx
-    jnz POSITIVE
-
-END: nop
+    jnz NEGATIVE_PUSH
+    movl num, %edx
+    neg %edx
+NEGATIVE_POP:
+    popq %rcx
+    movb %cl, (%rbx)
+    add $1, %rbx
+    dec %rdx
+    jnz NEGATIVE_POP
+    
+END:
