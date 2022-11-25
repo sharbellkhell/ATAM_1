@@ -9,7 +9,7 @@ movq (head), %rbx	# rbx is pointer to next location
 leaq (head), %rdx
 test %rbx, %rbx
 jz END_HW1
-movl (value), %eax
+movl (Value), %eax
 cltq
 xor %r10, %r10	# Counter - Num of nodes with value
 xor %r11, %r11	# Pointer - First appearance of value
