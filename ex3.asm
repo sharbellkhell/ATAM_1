@@ -44,5 +44,5 @@ A2_GREAT_HW1:
     add $4, %rdx
     jmp LOOP_HW1
 
-END:
+END_HW1:
     movl $0x0, (%rdx)
