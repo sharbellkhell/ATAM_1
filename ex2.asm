@@ -3,8 +3,8 @@
 .section .text
 _start:
     movq %rsp, %rbp #for correct debugging
-    mov source, %rax
-    mov destination, %rbx
+    lea source, %rax
+    lea destination, %rbx
     xor %rdx, %rdx
     xor %rcx, %rcx
     movl num, %edx
