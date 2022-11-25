@@ -53,6 +53,6 @@ jmp END_HW1
 
 ADD_NODE_HW1:
     leaq (new_node), %r13
-    mov %r13, (%r9)
+    mov %r13, (%r8)
 
 END_HW1:
