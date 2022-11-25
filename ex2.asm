@@ -4,7 +4,7 @@
 _start:
     movq %rsp, %rbp #for correct debugging
     mov source, %rax
-    mov dest, %rbx
+    mov destination, %rbx
     xor %rdx, %rdx
     xor %rcx, %rcx
     movl num, %edx
