@@ -26,7 +26,7 @@ jg LEFT_HW1	# new_node.DATA < current.DATA
 RIGHT_HW1:
 test %r12, %r12
 jz CHANGE_RIGHT_HW1
-movq (%r12) ,%r14
+movq %r12 ,%r14
 test %r14, %r14
 jz CHANGE_RIGHT_HW1
 mov %r12, %r9
@@ -35,7 +35,7 @@ jmp LOOP_HW1
 LEFT_HW1:
 test %r11, %r11
 jz CHANGE_LEFT_HW1
-movq (%r11) ,%r14
+movq %r11 ,%r14
 test %r14, %r14
 jz CHANGE_LEFT_HW1
 mov %r11, %r9
