@@ -19,15 +19,15 @@ LOOP_HW1:
     mov (%rbx),%r9d
     
     test %r8d, %r8d
-    jnz CONTINUE
+    jnz CONTINUE_HW1
     test %r9d, %r9d
-    jz END
+    jz END_HW1
 
-CONTINUE:
+CONTINUE_HW1:
     cmp %r8d, %r9d
-    ja A2_GREAT	# array1(index1) < array2(index2)
+    ja A2_GREAT_HW1	# array1(index1) < array2(index2)
 
-A1_GREAT_EQUAL:
+A1_GREAT_EQUAL_HW1:
     add $4, %rax
     cmp %r8d, %ecx # check if current value and last value are equal
     je LOOP_HW1
@@ -35,7 +35,7 @@ A1_GREAT_EQUAL:
     mov %r8d, (%rdx)
     add $4, %rdx
     jmp LOOP_HW1
-A2_GREAT:
+A2_GREAT_HW1:
     add $4, %rbx
     cmp %r9d, %ecx #check if current value and last value are equal
     je LOOP_HW1
@@ -46,4 +46,3 @@ A2_GREAT:
 
 END:
     movl $0x0, (%rdx)
-#your code here
