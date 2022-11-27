@@ -76,7 +76,4 @@ movq %r14, 8(%r8)
 
 
 
-END_HW1:nop
-nop
-nop
-
+END_HW1:
