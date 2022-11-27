@@ -9,3 +9,4 @@ _start:
     test %al, %al
     cmove %dx, %bx
     movb %bl, Bool
+    END_HW1:
